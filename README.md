@@ -1,2 +1,2 @@
-# newTab_ToDoList
- Show your to do list on your new tab at chrome or edge browser. By Chrome Extension
+# newTabToDo
+ Show your to do list on a new tab at chrome or egde browser.

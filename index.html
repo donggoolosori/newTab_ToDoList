@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Newtab Todo</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <!-- weather -->
+      <div class="js-weather">
+        <div class="iconTemp">
+          <span class="js-weatherIcon"></span>
+          <h4 class="js-temp"></h4>
+        </div>
+        <h4 class="js-place"></h4>
+      </div>
+    </header>
+
+    <!-- time  -->
+    <div class="js-clock">
+      <h1>00:00:00</h1>
+    </div>
+
+    <!-- greeting -->
+    <form class="js-form">
+      <input type="text" spellcheck="false" placeholder="What is your name?" />
+    </form>
+    <h1 class="js-greeting hide"></h1>
+
+    <!-- todo -->
+    <form class="js-todoForm hide">
+      <input
+        type="text"
+        spellcheck="false"
+        class="js-todoInput"
+        placeholder="main focus today"
+      />
+      <button class="js-todoButton">
+        <i class="fas fa-plus-square"></i>
+      </button>
+    </form>
+    <div class="js-todoContainer">
+      <ul class="js-todoList"></ul>
+    </div>
+    <!-- sns -->
+    <footer>
+      <a href="https://www.instagram.com/dongjune_k10/"
+        ><i class="fab fa-instagram-square"></i
+      ></a>
+      <a href="https://github.com/fffqqqddd">
+        <i class="fab fa-github-square"></i
+      ></a>
+    </footer>
+
+    <script src="clock.js"></script>
+    <script src="greeting.js"></script>
+    <script src="bg.js"></script>
+    <script src="todo.js"></script>
+    <script src="weather.js"></script>
+  </body>
+</html>
