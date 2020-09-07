@@ -4,34 +4,46 @@ const place = document.querySelector(".js-place");
 const API_KEY = "5e2ede8ed107dad505b40530567db49d";
 const COORDS = "coords";
 
-function getIconClass(description) {
+function getIconClass(description, main) {
   // how to get sunset ,sunrise time?
   const date = new Date();
   const hour = date.getHours();
-  const night = 0;
+  let night = 0;
   if (hour >= 19 || hour <= 6) {
-    const night = 1;
+    night = 1;
   }
-  if (description === "broken clouds" || description === "scattered clouds") {
-    return '<i class="fas fa-cloud"></i>';
-  } else if (description === "clear sky") {
-    if (night === 0) {
+  if (main === "Thunderstorm") {
+    return '<i class="fas fa-bolt"></i>';
+  } else if (main === "Drizzle") {
+    return '<i class="fas fa-cloud-showers-heavy"></i>';
+  } else if (main === "Rain") {
+    if (description === "light rain" || description === "moderate rain") {
+      if (night === 1) {
+        return '<i class="fas fa-cloud-moon-rain"></i>';
+      } else {
+        return '<i class="fas fa-cloud-sun-rain"></i>';
+      }
+    }
+  } else if (main === "Snow") {
+    return '<i class="far fa-snowflake"></i>';
+  } else if (main === "Clear") {
+    if (night === 1) {
+      return '<i class="fas fa-moon"></i>';
+    } else {
       return '<i class="fas fa-sun"></i>';
     }
-    return '<i class="fas fa-moon"></i>';
-  } else if (description === "shower rain" || description === "rain") {
-    return '<i class="fas fa-cloud-showers-heavy"></i>';
-  } else if (description === "thunderstorm") {
-    return '<i class="fas fa-bolt"></i>';
-  } else if (description === "snow") {
-    return '<i class="far fa-snowflake"></i>';
-  } else if (description === "mist") {
-    return '<i class="fas fa-smog"></i>';
-  } else {
-    if (night === 0) {
-      return '<i class="fas fa-cloud-sun"></i>';
+  } else if (main === "Clouds") {
+    if (description === "few clouds") {
+      if (night === 1) {
+        return '<i class="fas fa-cloud-moon"></i>';
+      } else {
+        return '<i class="fas fa-cloud-sun"></i>';
+      }
+    } else {
+      return '<i class="fas fa-cloud"></i>';
     }
-    return '<i class="fas fa-cloud-moon"></i>';
+  } else {
+    return '<i class="fas fa-smog"></i>';
   }
 }
 
@@ -46,7 +58,8 @@ function getWeather(lat, lon) {
       const temperature = json.main.temp;
       const jsonPlace = json.name;
       const weatherDescription = json.weather[0].description;
-      const icon = getIconClass(weatherDescription);
+      const weatherMain = json.weather[0].main;
+      const icon = getIconClass(weatherDescription, weatherMain);
       weatherIcon.innerHTML = icon;
       temp.innerText = `${Math.round(temperature)}°`;
       place.innerText = jsonPlace;
