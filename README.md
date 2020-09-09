@@ -70,11 +70,17 @@ temp.innerText = `${Math.round(temperature)}°`;
 place.innerText = jsonPlace;
 ```
 
-- 날씨 icon은 json파일의 description 데이터를 getIconClass 함수에 넣어서 description에 따른 아이콘 클래스를 반환하여 설정했습니다.
+- 날씨 icon은 json파일의 main과 description 데이터를 getIconClass 함수에 넣어서 main과 description에 따른 아이콘 클래스를 반환하여 설정했습니다. main은 날씨의 대략적인 설명, 예를 들면 Cloud,Rain등의 정보이고 description은 scattered cloud, light rain과 같은 날씨의 구체적인 정보입니다.
 
 ```js
-if (description === "broken clouds" || description === "scattered clouds") {
-    return '<i class="fas fa-cloud"></i>';
+else if (main === "Rain") {
+    if (description === "light rain" || description === "moderate rain") {
+      if (night === 1) {
+        return '<i class="fas fa-cloud-moon-rain"></i>';
+      } else {
+        return '<i class="fas fa-cloud-sun-rain"></i>';
+      }
+    }
 ```
 
 7. **배경 이미지**  
