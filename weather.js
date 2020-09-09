@@ -23,6 +23,8 @@ function getIconClass(description, main) {
       } else {
         return '<i class="fas fa-cloud-sun-rain"></i>';
       }
+    } else {
+      return '<i class="fas fa-cloud-showers-heavy"></i>';
     }
   } else if (main === "Snow") {
     return '<i class="far fa-snowflake"></i>';
