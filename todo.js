@@ -105,7 +105,7 @@ function removeLocalChecked(todo) {
 function checkCheckedLs(todo) {
   const index = getIndexOfTodos(todo);
   checked = getLocalChecked();
-  checked[index] = 1;
+  checked[index] = 1 - checked[index];
   localStorage.setItem(CHECKED_LS, JSON.stringify(checked));
 }
 function deleteCheck(event) {
