@@ -1,5 +1,5 @@
 # newTabToDo
-
+[설치 링크](https://chrome.google.com/webstore/detail/simple-todo-on-newtab/mfcapokfldknainnhmpaffpgbajkcgan)
 ## To do list on a new tab at chrome or egde browser.
 
 vanila javascript를 사용하여 개발하였습니다.  
